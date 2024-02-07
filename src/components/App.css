@@ -1,0 +1,47 @@
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .header{
+    margin-bottom:50px;
+    text-align:center;
+  }
+  .leen{
+    padding:70px;
+  }
+  .movie {
+    width: calc(33.33% - 20px); /* Adjust width for spacing */
+    margin-bottom: 20px; /* Adjust vertical spacing between movies */
+    text-align: center;
+  }
+  
+  .movie img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .movie h2 {
+    margin-top: 10px; 
+  }
+  
+  .movie button {
+    margin-top: 10px; 
+    background-color: transparent;
+      border: 2px solid black;
+      color: black;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1); /* Increase size on hover */
+        box-shadow: 0 0 10px black; /* White shadow on hover */
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+  }
+  
