@@ -72,6 +72,9 @@ const Wrapper = styled.div`
     position: relative;
     z-index: 4;
     margin-right: 20px;
+    @media (max-width: 400px) {
+      margin-right: 37px;
+    }
   }
   @media (min-width: 768px) {
     .hamburger {
