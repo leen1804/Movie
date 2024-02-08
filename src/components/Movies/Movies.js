@@ -32,25 +32,30 @@ function App() {
   };
 
   return (
-    <div className = ' leen'>
+    <div className='leen'>
       <h1 className="header">Welcome to Fantastic Films</h1>
-      <div className="movie-list">
-        {movies.map((movie) => (
-          <div key={movie.id} className="movie">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <h2>{movie.title}</h2>
-            <button onClick={() => handleMovieClick(movie)}>View Details</button>
-          </div>
-        ))}
-      </div>
+      {!selectedMovie && (
+        <div className="movie-list">
+          {movies.map((movie) => (
+            <div key={movie.id} className="movie">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <h2>{movie.title}</h2>
+              <button onClick={() => handleMovieClick(movie)}>View Details</button>
+            </div>
+          ))}
+        </div>
+      )}
       {selectedMovie && (
-        <MovieDetails
-          movie={selectedMovie}
-          onClose={handleCloseMovieDetails}
-        />
+        <div>
+          <MovieDetails
+            movie={selectedMovie}
+            onClose={handleCloseMovieDetails}
+          />
+          <button onClick={handleCloseMovieDetails}>Close</button>
+        </div>
       )}
     </div>
   );

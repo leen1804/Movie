@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { NavLink, useLocation, Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Wrapper = styled.div`
   .header {
@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0;
+    position: absolute;
     width: 100%;
     @media (min-width: 990px) {
     }
@@ -25,7 +26,14 @@ const Wrapper = styled.div`
     margin: 0 auto;
     margin-left: 2%;
     z-index: 4;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px black;
+    }
 
+    &:active {
+      transform: scale(0.9);
+    }
     @media (max-width: 1030px) {
       img {
         width: 35%;
@@ -35,7 +43,7 @@ const Wrapper = styled.div`
   ul {
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 54vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -50,7 +58,9 @@ const Wrapper = styled.div`
     padding: 0px;
     overflow: hidden;
     background: black;
-
+    @media (min-width: 1200px) {
+      height: 100vh;
+    }
     a {
       padding: 20px;
       font-size: 19px;
@@ -72,7 +82,7 @@ const Wrapper = styled.div`
     position: relative;
     z-index: 4;
     margin-right: 20px;
-    @media (max-width: 400px) {
+    @media (max-width: 667px) {
       margin-right: 37px;
     }
   }
@@ -130,21 +140,31 @@ const Wrapper = styled.div`
     max-width: 91%;
     @media (min-width: 1200px) {
       max-width: 38.9%;
-      
+      height: 100vh;
+      border-right: 1px white solid;
+      border-radius: 10px;
+      box-shadow: ${({ isBlackShadow }) =>
+        isBlackShadow ? "0 0 30px black" : " 0 0 20px rgba(255, 255, 255, 0.5)"};
     }
   }
-  
 `;
 
 function Burger() {
   const [checked, setChecked] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/" || location.pathname === "/Me";
+  const isBlackShadow = location.pathname !== "/";
+
   const handleClick = () => {
-    setChecked(false); 
+    setChecked(false);
   };
 
   return (
-    <Wrapper className="wrap">
-      <div className="header">
+    <Wrapper className="wrap" isBlackShadow={isBlackShadow}>
+      <div
+        className="header"
+        style={{ position: isHomePage ? "absolute" : "relative" }}
+      >
         <img src="./brand.png" className="logo" alt="" />
 
         <div
@@ -166,7 +186,7 @@ function Burger() {
           </NavLink>
           <NavLink className="nav-link" to="/Me" exact onClick={handleClick}>
             <li>
-              <a href="">About the devloper</a>
+              <a href="">About the developer</a>
             </li>
           </NavLink>
         </ul>

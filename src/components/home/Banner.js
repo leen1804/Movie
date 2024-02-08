@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 const Wrapper = styled.div`
   .banner {
     height: 100vh;
+    background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./leen.jpeg);
 
-    background: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   
     color: white;
     display: flex;
     justify-content: center;
@@ -24,24 +28,24 @@ const Wrapper = styled.div`
       background-color: transparent;
       border: 2px solid white;
       color: white;
+      border-radius: 10px;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover {
-        transform: scale(1.1); /* Increase size on hover */
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow on hover */
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       }
 
       &:active {
-        transform: scale(0.9); /* Decrease size on click */
+        transform: scale(0.9);
       }
     }
   }
 `;
 function Banner() {
-  
   return (
     <Wrapper>
       <div className="banner">
