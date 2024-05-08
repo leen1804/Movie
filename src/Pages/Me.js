@@ -36,10 +36,10 @@ export default function Me() {
   return (
     <Wrapper>
       <div className="lee">
-        <h1>Developer Information</h1>
-        <h3>Name : Eillen Mutiti</h3>
-        <h3>Email : ruvarashemutitieillen@gmail.com</h3>
-        <h3> Phone Number :0774362077</h3>
+        <h1>Developers Information</h1>
+        <h3>Name : Leeroy Sindiso N0222417Q  </h3>
+      <h3> Victoria Nxumalo N02219387Y</h3>
+      <h3>Sethukile Nyathi N02222156M</h3>
       </div>
     </Wrapper>
   );
